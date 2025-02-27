@@ -6,6 +6,7 @@
 class Board {
 private:
 	std::string board;
+	mutable std::string updatedboard; // Cache of updated state
 	int columns;
 	int rows;
 

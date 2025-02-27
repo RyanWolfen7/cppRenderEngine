@@ -19,12 +19,21 @@ void Board::generateBoard() {
 }
 
 void Board::render() const {
-    for (int i = 0; i < columns * rows; ++i) {
-        std::cout << board[i];
-        if ((i + 1) % columns == 0) {
-            std::cout << "\n";
+	if (board != updatedboard) {
+        #ifdef _WIN32
+                system("cls");
+        #else
+                system("clear");
+        #endif // _WIN32
+
+        for (int i = 0; i < columns * rows; ++i) {
+            std::cout << board[i];
+            if ((i + 1) % columns == 0) {
+                std::cout << "\n";
+            }
         }
-    }
+		updatedboard = board;
+	}
 }
 
 void Board::setChar(int x, int y, char ch) {

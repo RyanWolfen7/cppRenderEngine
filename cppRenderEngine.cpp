@@ -17,25 +17,11 @@ int main()
     std::cout << "Hello World!\n";
 	signal(SIGINT, signalHandler);
 	std::cout << "Press Ctrl+E to terminate the program...\n";
-
 	Board board(10, 10);
-	std::string initialBoard = board.getBoard();
 	board.setChar(5, 5, '@');
-	std::cout << board.getBoard();
-	board.render();
 	while (true)
 	{
-		std::string currentBoard = board.getBoard();
-		if (currentBoard != initialBoard)
-		{
-			#ifdef _WIN32
-						system("cls");
-			#else
-						system("clear");
-			#endif // _WIN32
-			board.render();
-			initialBoard = currentBoard;
-		}
+		board.render();
 
 
 		// Pause for a short duration to achieve 30 FPS (1000ms / 30 = ~33ms per frame)
