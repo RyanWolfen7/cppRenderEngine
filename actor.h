@@ -3,24 +3,27 @@
 
 #include <array>
 
+class Board;
+
 class Actor {
 private:
-	int coords[2];
-	char symbol;
+    int coords[2];
+    int prevCoords[2];
+    char symbol;
+    Board* board;
 public:
-	Actor(int x = 0, int y = 0, char symbol = '@') : coords{ x, y }, symbol(symbol) {};
-	~Actor() = default;
+    Actor(Board* board, int x, int y, char symbol);
+    ~Actor() = default;
 
-	// Getters
-	std::array<int, 2> getCoords() const { return { coords[0], coords[1] }; };
-	std::char_traits<char>::int_type getSymbol() const { return symbol; };
+    // Getters
+    std::array<int, 2> getCoords() const;
+    char getSymbol() const;
 
-	// Setters
-	void setCoords(int x, int y) {
-		coords[0] = x;
-		coords[1] = y;
-	};
+    // Setters
+    void setCoords(int x, int y);
 
+    // Listeners
+    void listenForInput();
 };
 
 #endif // ACTOR_H

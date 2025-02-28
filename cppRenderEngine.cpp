@@ -19,15 +19,16 @@ int main()
 	signal(SIGINT, signalHandler);
 	std::cout << "Press Ctrl+E to terminate the program...\n";
 	Board board(10, 10);
-	Actor actor(5, 5);
-	board.setActor(actor);
+	Actor actor(&board, 5, 5, '@');
+	board.setActor(&actor);
 	while (true)
 	{
+		actor.listenForInput();
 		board.render();
 
 
 		// Pause for a short duration to achieve 30 FPS (1000ms / 30 = ~33ms per frame)
-		std::this_thread::sleep_for(std::chrono::milliseconds(6000));
+		std::this_thread::sleep_for(std::chrono::milliseconds(33));
 	}
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "board.h"
 
-Board::Board(int columns, int rows) : columns(columns), rows(rows), board(columns * rows, ' ') {
+Board::Board(int columns, int rows) : columns(columns), rows(rows), board(columns * rows, ' '), buffer(columns* rows, ' ') {
     generateBoard();
 }
 
@@ -16,10 +16,25 @@ void Board::generateBoard() {
             board[i] = ' ';
         }
     }
+    buffer = board;
+}
+
+void Board::updateBuffer() const {
+    buffer = board; // Reset the buffer to the initial board state
+
+    for (const auto& actor : actors) {
+        int x = actor->getCoords()[0];
+        int y = actor->getCoords()[1];
+        buffer[y * columns + x] = actor->getSymbol();
+    }
 }
 
 void Board::render() const {
-	if (board != updatedboard) {
+    std::string previousBuffer = buffer;
+    updateBuffer();
+
+    // Check if there are changes
+    if (previousBuffer != buffer) {
         #ifdef _WIN32
                 system("cls");
         #else
@@ -27,21 +42,20 @@ void Board::render() const {
         #endif // _WIN32
 
         for (int i = 0; i < columns * rows; ++i) {
-            std::cout << board[i];
+            std::cout << buffer[i];
             if ((i + 1) % columns == 0) {
                 std::cout << "\n";
             }
         }
-		updatedboard = board;
-	}
+    }
 }
 
 void Board::setChar(int x, int y, char ch) {
-    board[y * x] = ch;
+    board[y * columns + x] = ch;
 }
 
-void Board::setActor(Actor actor) {
-	board[actor.getCoords()[1] * actor.getCoords()[0]] = actor.getSymbol();
+void Board::setActor(Actor* actor) {
+    actors.push_back(actor);
 }
 
 std::string Board::getBoard() const {

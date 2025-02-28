@@ -8,14 +8,15 @@
 
 class Board {
 private:
-	std::string board;
-	mutable std::string updatedboard; // Cache of updated state
-	mutable std::vector<Actor> actors;
+	mutable std::string board;
+	mutable std::string buffer;
+	mutable std::vector<Actor*> actors;
 	int columns;
 	int rows;
 
 	// Helper function
 	void generateBoard();
+	void updateBuffer() const;
 public:
 	// Constructor
 	Board(int columns, int rows);
@@ -28,7 +29,7 @@ public:
 
 	// Setters
 	void setChar(int x, int y, char c);
-	void setActor(Actor actor);
+	void setActor(Actor* actor);
 
 	// Getters
 	std::string getBoard() const;
