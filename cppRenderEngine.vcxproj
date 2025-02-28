@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="actor.cpp" />
     <ClCompile Include="board.cpp" />
     <ClCompile Include="boardUtils.cpp" />
     <ClCompile Include="cppRenderEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="actor.h" />
     <ClInclude Include="board.h" />
     <ClInclude Include="UTILS.h" />
   </ItemGroup>

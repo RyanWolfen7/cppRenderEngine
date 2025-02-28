@@ -4,6 +4,7 @@
 #include <chrono>
 #include <signal.h>
 #include "board.h"
+#include "actor.h"
 
 void signalHandler(int signum) {
 	std::cout << "Interrupt signal (" << signum << ") received.\n";
@@ -18,7 +19,8 @@ int main()
 	signal(SIGINT, signalHandler);
 	std::cout << "Press Ctrl+E to terminate the program...\n";
 	Board board(10, 10);
-	board.setChar(5, 5, '@');
+	Actor actor(5, 5);
+	board.setActor(actor);
 	while (true)
 	{
 		board.render();

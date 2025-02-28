@@ -27,12 +27,18 @@
     <ClCompile Include="board.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="actor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UTILS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

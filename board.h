@@ -2,11 +2,15 @@
 #define BOARD_H
 
 #include <string>
+#include <array>
+#include <vector>
+#include "actor.h"
 
 class Board {
 private:
 	std::string board;
 	mutable std::string updatedboard; // Cache of updated state
+	mutable std::vector<Actor> actors;
 	int columns;
 	int rows;
 
@@ -24,6 +28,7 @@ public:
 
 	// Setters
 	void setChar(int x, int y, char c);
+	void setActor(Actor actor);
 
 	// Getters
 	std::string getBoard() const;

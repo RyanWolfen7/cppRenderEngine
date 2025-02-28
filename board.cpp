@@ -40,6 +40,10 @@ void Board::setChar(int x, int y, char ch) {
     board[y * x] = ch;
 }
 
+void Board::setActor(Actor actor) {
+	board[actor.getCoords()[1] * actor.getCoords()[0]] = actor.getSymbol();
+}
+
 std::string Board::getBoard() const {
     return board;
 }
