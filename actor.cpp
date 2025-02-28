@@ -23,9 +23,6 @@ void Actor::setCoords(int x, int y) {
 
     // Clear the previous position on the board
     board->setChar(prevCoords[0], prevCoords[1], ' ');
-
-    // Notify the board to render the updated position
-    board->render();
 }
 
 // Listeners

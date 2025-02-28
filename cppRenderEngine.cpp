@@ -18,7 +18,8 @@ int main()
     std::cout << "Hello World!\n";
 	signal(SIGINT, signalHandler);
 	std::cout << "Press Ctrl+E to terminate the program...\n";
-	Board board(10, 10);
+	// char xy = 175, 55; Max dimensions at full screen for reference
+	Board board(20, 10);
 	Actor actor(&board, 5, 5, '@');
 	board.setActor(&actor);
 	while (true)

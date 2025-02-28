@@ -29,6 +29,7 @@ void Board::updateBuffer() const {
     }
 }
 
+// only needed for this instance if. I load board into window should have a render based on actor and not board
 void Board::render() const {
     std::string previousBuffer = buffer;
     updateBuffer();
