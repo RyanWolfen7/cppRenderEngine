@@ -61,3 +61,13 @@ void Board::setActor(Actor* actor) {
 std::string Board::getBoard() const {
     return board;
 }
+
+bool Board::isWalkable(int x, int y) const {
+    // Ensure the coordinates are within the board's boundaries
+    if (x < 0 || x >= columns || y < 0 || y >= rows) {
+        return false;
+    }
+
+    // Check if the target position is walkable (not a wall)
+    return board[y * columns + x] == ' ';
+}

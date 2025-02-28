@@ -8,6 +8,11 @@ Actor::Actor(Board* board, int x = 0, int y = 0, char symbol = '@') : board(boar
 
 // Setters
 void Actor::setCoords(int x, int y) {
+    // Check if the target position is walkable
+    if (!board->isWalkable(x, y)) {
+        return;
+    }
+
     // Update previous coordinates
     prevCoords[0] = coords[0];
     prevCoords[1] = coords[1];

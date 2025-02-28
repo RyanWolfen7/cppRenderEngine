@@ -33,6 +33,7 @@ public:
 
 	// Getters
 	std::string getBoard() const;
+	bool isWalkable(int x, int y) const;
 };
 
 #endif // BOARD_H
