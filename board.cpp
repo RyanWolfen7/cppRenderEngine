@@ -48,6 +48,10 @@ void Board::render() const {
             }
         }
     }
+	if (message != previousMessage) {
+		std::cout << message << std::endl;
+		previousMessage = message;
+	}
 }
 
 void Board::setChar(int x, int y, char ch) {
@@ -56,6 +60,10 @@ void Board::setChar(int x, int y, char ch) {
 
 void Board::setActor(Actor* actor) {
     actors.push_back(actor);
+}
+
+void Board::setMessage(const std::string& message) {
+	this->message = message;
 }
 
 std::string Board::getBoard() const {
@@ -69,5 +77,12 @@ bool Board::isWalkable(int x, int y) const {
     }
 
     // Check if the target position is walkable (not a wall)
-    return board[y * columns + x] == ' ';
+	if (board[y * columns + x] == '#') {
+		message = "You can't walk through walls!";
+		return false;
+	}
+
+    // default message
+	message = "";
+    return true;
 }

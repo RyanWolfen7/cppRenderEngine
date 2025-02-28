@@ -10,6 +10,8 @@ class Board {
 private:
 	mutable std::string board;
 	mutable std::string buffer;
+	mutable std::string message;
+	mutable std::string previousMessage;
 	mutable std::vector<Actor*> actors;
 	int columns;
 	int rows;
@@ -30,6 +32,7 @@ public:
 	// Setters
 	void setChar(int x, int y, char c);
 	void setActor(Actor* actor);
+	void setMessage(const std::string& message);
 
 	// Getters
 	std::string getBoard() const;
