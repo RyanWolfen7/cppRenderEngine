@@ -16,6 +16,9 @@
     <Filter Include="utils">
       <UniqueIdentifier>{3a6a9597-ed3f-4640-b01d-5e5953820a1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{59b44ad7-e734-4371-8841-037465a68b27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cppRenderEngine.cpp">
@@ -30,16 +33,22 @@
     <ClCompile Include="actor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="gameWindows.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UTILS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="actor.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameWindows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UTILS.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
